@@ -1,0 +1,41 @@
+//
+// Buttons
+// --------------------------------------------
+
+@mixin button($buttonPadding, $buttonColor, $buttonColorHover, $buttonColorActive, $textColor) {
+	display: inline-block;
+	padding: $buttonPadding;
+	background-color: $buttonColor;
+	font-size: 14px;
+	border: none;
+	text-decoration: none;
+	color: $textColor;
+
+	&:hover {
+		background-color: $buttonColorHover;
+	}
+
+	&:active {
+		box-shadow:inset 0 1px 10px 0 $buttonColorActive;
+	}
+}
+
+.btn {
+	@include button(10px 15px,#0B6788,#32A8D3,#032B3A,white);
+}
+
+.btn-green {
+	@include button(10px 15px,#08833D,#17AA56,#085428,white);
+}
+
+.btn-purple {
+	@include button(10px 15px,#823AA0,#9E54BD,#823AA0,white);
+}
+
+.btn-orange {
+	@include button(10px 15px,#F29E0D,#FCD048,#F29E0D,white);
+}
+
+.btn-red {
+	@include button(10px 15px,#CB4E4E,#F06060,#CB4E4E,white);
+}
