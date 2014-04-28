@@ -2,7 +2,7 @@
 // Buttons
 // --------------------------------------------
 
-@mixin button($buttonPadding, $buttonColor, $buttonColorHover, $buttonColorActive, $textColor) {
+@mixin button($buttonPadding, $buttonColor, $textColor) {
 	display: inline-block;
 	padding: $buttonPadding;
 	background-color: $buttonColor;
@@ -10,32 +10,123 @@
 	border: none;
 	text-decoration: none;
 	color: $textColor;
+	position: relative;
 
 	&:hover {
-		background-color: $buttonColorHover;
+		background-color: lighten($buttonColor, 10%);
 	}
 
 	&:active {
-		box-shadow:inset 0 1px 10px 0 $buttonColorActive;
+		background-color: darken($buttonColor, 10%);
+	}
+}
+
+@mixin button3D($buttonColor) {
+	box-shadow: 0 6px 0 0 darken($buttonColor, 20%);
+	margin: 0 0 6px 0;
+
+	&:hover {
+		background-color: $buttonColor;
+		box-shadow: 0 4px darken($buttonColor, 20%);
+		top: 2px;
+	}
+
+	&:active {
+		background-color: $buttonColor;
+		box-shadow: 0 0 darken($buttonColor, 20%);
+		top: 6px;
+	}
+}
+
+@mixin buttonSided($buttonColor) {
+	box-shadow: 0 6px 0 0 darken($buttonColor, 25%);
+	background-color: darken($buttonColor, 10%);
+	position: absolute;
+	content: "";
+	padding: 0;
+	top: 0;
+	left: -30px;
+	height: 100%;
+	width: 30px;
+	text-align: center;
+	line-height: 35px;
+}
+
+
+$colors:(valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, conifer: #90D844, sienna:#D88D44, shakespeare: #44AAD8, cerise: #D84492);
+
+@each $name, $color in $colors {
+	.btn-#{$name} {
+		@include button(10px 15px, $color, #fff);
+	}
+
+	.btn-#{$name}.btn-3d {
+		@include button3D($color);
+	}
+
+	.btn-#{$name}.btn-sided {
+		@include button3D($color);
+		margin: 0 0 6px 30px;
+		&:before {
+			@include buttonSided($color);
+			border-right: 1px solid darken($color, 25%);
+		}
+
+		&:hover {
+			box-shadow: 0 6px darken($color, 20%);
+			top: 0px;
+		}
+
+		&:active {
+			box-shadow: 0 2px darken($color, 20%);
+			top: 4px;
+		}
+
+		&:active:before {
+			box-shadow: 0px 6px darken($color, 25%),
+			3px 6px darken($color, 25%),
+			6px 5px 4px 0 darken($color, 30%),
+			1px 1px 0px 0 darken($color, 25%),
+			2px 2px 0px 0 darken($color, 25%),
+			3px 3px 0px 0 darken($color, 25%);
+			top: -4px;
+		}
 	}
 }
 
 .btn {
-	@include button(10px 15px,#0B6788,#32A8D3,#032B3A,white);
+	@include button(10px 15px, #20A8A6, #fff);
 }
 
-.btn-green {
-	@include button(10px 15px,#08833D,#17AA56,#085428,white);
+.btn-3d {
+	@include button3D(#20A8A6);
 }
 
-.btn-purple {
-	@include button(10px 15px,#823AA0,#9E54BD,#823AA0,white);
-}
+.btn-sided {
+	@include button3D(#20A8A6);
+	margin: 0 0 6px 30px;
+	&:before {
+		@include buttonSided(#20A8A6);
+		border-right: 1px solid darken(#20A8A6, 25%);
+	}
 
-.btn-orange {
-	@include button(10px 15px,#F29E0D,#FCD048,#F29E0D,white);
-}
+	&:hover {
+		box-shadow: 0 6px darken(#20A8A6, 20%);
+		top: 0px;
+	}
 
-.btn-red {
-	@include button(10px 15px,#CB4E4E,#F06060,#CB4E4E,white);
+	&:active {
+		box-shadow: 0 2px darken(#20A8A6, 20%);
+		top: 4px;
+	}
+
+	&:active:before {
+		box-shadow: 0px 6px darken(#20A8A6, 25%),
+		3px 6px darken(#20A8A6, 25%),
+		6px 5px 4px 0 darken(#20A8A6, 30%),
+		1px 1px 0px 0 darken(#20A8A6, 25%),
+		2px 2px 0px 0 darken(#20A8A6, 25%),
+		3px 3px 0px 0 darken(#20A8A6, 25%);
+		top: -4px;
+	}
 }
