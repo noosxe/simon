@@ -1,0 +1,10 @@
+@mixin sgc() {
+  float: left;
+}
+
+@for $i from 1 through 12 {
+  .sgc-#{$i} {
+    @include sgc;
+    width: percentage($i/12);
+  }
+}
