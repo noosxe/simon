@@ -11,6 +11,7 @@
 	text-decoration: none;
 	color: $textColor;
 	position: relative;
+	margin: 5px;
 
 	&:hover {
 		background-color: lighten($buttonColor, 10%);
@@ -80,21 +81,14 @@
 	}
 
 	&:active:before {
-		box-shadow: 0px 6px darken(#20A8A6, 25%),
-		3px 6px darken(#20A8A6, 25%),
-		6px 5px 4px 0 darken(#20A8A6, 30%),
-		1px 1px 0px 0 darken(#20A8A6, 25%),
-		2px 2px 0px 0 darken(#20A8A6, 25%),
-		3px 3px 0px 0 darken(#20A8A6, 25%);
+		box-shadow: 0px 6px darken(#20A8A6, 25%), 3px 6px darken(#20A8A6, 25%), 6px 5px 4px 0 darken(#20A8A6, 30%), 1px 1px 0px 0 darken(#20A8A6, 25%), 2px 2px 0px 0 darken(#20A8A6, 25%), 3px 3px 0px 0 darken(#20A8A6, 25%);
 		top: -4px;
 	}
 }
 
 /*******************************************************************************************/
 
-
-
-$colors:(bluewood: #2C3E50, valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, conifer: #90D844, sienna:#D88D44, shakespeare: #44AAD8, cerise: #D84492);
+$colors: (red:#D2322D, orange: #F18C20, yellow: #F5B400, blue: #124E8C,bluewood: #2C3E50, valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, conifer: #90D844, sienna:#D88D44, shakespeare: #44AAD8, cerise: #D84492);
 
 @each $name, $color in $colors {
 	.btn-#{$name} {
@@ -124,12 +118,7 @@ $colors:(bluewood: #2C3E50, valencia:#DB4242,wattle:#D8D444, purple: #A544D8, tu
 		}
 
 		&:active:before {
-			box-shadow: 0px 6px darken($color, 25%),
-			3px 6px darken($color, 25%),
-			6px 5px 4px 0 darken($color, 30%),
-			1px 1px 0px 0 darken($color, 25%),
-			2px 2px 0px 0 darken($color, 25%),
-			3px 3px 0px 0 darken($color, 25%);
+			box-shadow: 0px 6px darken($color, 25%), 3px 6px darken($color, 25%), 6px 5px 4px 0 darken($color, 30%), 1px 1px 0px 0 darken($color, 25%), 2px 2px 0px 0 darken($color, 25%), 3px 3px 0px 0 darken($color, 25%);
 			top: -4px;
 		}
 	}
