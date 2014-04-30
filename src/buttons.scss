@@ -53,7 +53,7 @@
 }
 
 
-$colors:(valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, conifer: #90D844, sienna:#D88D44, shakespeare: #44AAD8, cerise: #D84492);
+$colors:(bluewood: #2C3E50, valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, conifer: #90D844, sienna:#D88D44, shakespeare: #44AAD8, cerise: #D84492);
 
 @each $name, $color in $colors {
 	.btn-#{$name} {
