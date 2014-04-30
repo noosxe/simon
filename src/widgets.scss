@@ -1,0 +1,42 @@
+//
+// Widgets
+// --------------------------------------------
+
+@mixin widget($bgColor, $background) {
+	margin: 5px 5px;
+	position: relative;
+	border: 1px solid darken($bgColor, 20%);
+	background: $background;
+	@include box-sizing(border-box);
+
+	header {
+		padding: 15px 10px;
+		background: darken($bgColor, 10%);
+		color: #fff;
+		font-weight: normal;
+		border-bottom: 1px solid darken($bgColor, 20%);
+		@include box-sizing(border-box);
+	}
+	section {
+		padding: 5px;
+		@include box-sizing(border-box);
+	}
+	footer {
+		padding: 10px 10px;
+		background: $bgColor;
+		color: #fff;
+		font-weight: normal;
+		border-top: 1px solid darken($bgColor, 20%);
+		@include box-sizing(border-box);
+	}
+}
+
+.widget {
+	@include widget(#20A8A6, #ffffff);
+}
+
+@each $name, $color in $colors {
+	.widget-#{$name} {
+		@include widget($color, #ffffff);
+	}
+}

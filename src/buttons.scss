@@ -23,7 +23,7 @@
 
 @mixin button3D($buttonColor) {
 	box-shadow: 0 6px 0 0 darken($buttonColor, 20%);
-	margin: 0 0 6px 0;
+	margin: 5px 5px 11px;
 
 	&:hover {
 		background-color: $buttonColor;
@@ -52,8 +52,7 @@
 	line-height: 35px;
 }
 
-
-$colors:(valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, conifer: #90D844, sienna:#D88D44, shakespeare: #44AAD8, cerise: #D84492);
+$colors: (valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, conifer: #90D844, sienna:#D88D44, shakespeare: #44AAD8, cerise: #D84492);
 
 @each $name, $color in $colors {
 	.btn-#{$name} {
@@ -66,7 +65,7 @@ $colors:(valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, c
 
 	.btn-#{$name}.btn-sided {
 		@include button3D($color);
-		margin: 0 0 6px 30px;
+		margin: 5px 5px 11px 35px;
 		&:before {
 			@include buttonSided($color);
 			border-right: 1px solid darken($color, 25%);
@@ -83,12 +82,7 @@ $colors:(valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, c
 		}
 
 		&:active:before {
-			box-shadow: 0px 6px darken($color, 25%),
-			3px 6px darken($color, 25%),
-			6px 5px 4px 0 darken($color, 30%),
-			1px 1px 0px 0 darken($color, 25%),
-			2px 2px 0px 0 darken($color, 25%),
-			3px 3px 0px 0 darken($color, 25%);
+			box-shadow: 0px 6px darken($color, 25%), 3px 6px darken($color, 25%), 6px 5px 4px 0 darken($color, 30%), 1px 1px 0px 0 darken($color, 25%), 2px 2px 0px 0 darken($color, 25%), 3px 3px 0px 0 darken($color, 25%);
 			top: -4px;
 		}
 	}
@@ -104,7 +98,7 @@ $colors:(valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, c
 
 .btn-sided {
 	@include button3D(#20A8A6);
-	margin: 0 0 6px 30px;
+	margin: 5px 5px 11px 35px;
 	&:before {
 		@include buttonSided(#20A8A6);
 		border-right: 1px solid darken(#20A8A6, 25%);
@@ -121,12 +115,7 @@ $colors:(valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, c
 	}
 
 	&:active:before {
-		box-shadow: 0px 6px darken(#20A8A6, 25%),
-		3px 6px darken(#20A8A6, 25%),
-		6px 5px 4px 0 darken(#20A8A6, 30%),
-		1px 1px 0px 0 darken(#20A8A6, 25%),
-		2px 2px 0px 0 darken(#20A8A6, 25%),
-		3px 3px 0px 0 darken(#20A8A6, 25%);
+		box-shadow: 0px 6px darken(#20A8A6, 25%), 3px 6px darken(#20A8A6, 25%), 6px 5px 4px 0 darken(#20A8A6, 30%), 1px 1px 0px 0 darken(#20A8A6, 25%), 2px 2px 0px 0 darken(#20A8A6, 25%), 3px 3px 0px 0 darken(#20A8A6, 25%);
 		top: -4px;
 	}
 }

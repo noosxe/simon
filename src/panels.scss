@@ -1,0 +1,22 @@
+//
+// Panels
+// --------------------------------------------
+
+@mixin bar($background) {
+	position: relative;
+	border: 1px solid darken($background, 20%);
+	background: $background;
+	color: #fff;
+	padding: 15px 5px;
+	@include box-sizing(border-box);
+}
+
+.bar {
+	@include bar(#20A8A6);
+}
+
+@each $name, $color in $colors {
+	.bar-#{$name} {
+		@include bar($color);
+	}
+}
