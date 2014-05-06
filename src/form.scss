@@ -1,0 +1,69 @@
+//
+// Form
+// --------------------------------------------
+
+@include font-face(fonticon, 'fonticon/fontawesome-webfont');
+
+@mixin input($bcolor) {
+	padding: 10px;
+	@include calc(width, '100% - 10px');
+	border: 1px solid $bcolor;
+	color: #000;
+	font-size: 14px;
+	margin: 5px 5px 0;
+	@include box-sizing(border-box);
+
+	&:focus {
+		box-shadow: 0 0 3px 1px $bcolor;
+	}
+}
+
+@mixin label() {
+	display: block;
+	margin: 5px 5px 0;
+	padding: 12px 10px;
+	font-weight: bold;
+	font-size: 14px;
+	@include box-sizing(border-box);
+}
+
+@mixin checkbox($bcolor) {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: #fff;
+	border: 1px solid $bcolor;
+	margin: 5px;
+	cursor: pointer;
+	font-family: fonticon;
+	@include box-sizing(border-box);
+
+	&:checked {
+
+	}
+	&:after {
+		content: "\f00c";
+	}
+}
+
+.sinput {
+	@include input(#20A8A6);
+}
+
+@each $name, $color in $colors {
+	.sinput-#{$name} {
+		@include input($color);
+	}
+}
+
+.scontrol {
+	margin: 0 0 10px 0;
+}
+
+.slabel {
+	@include label();
+}
+
+.scheckbox {
+	@include checkbox(#20A8A6);
+}

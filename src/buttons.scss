@@ -12,6 +12,8 @@
 	color: $textColor;
 	position: relative;
 	margin: 5px;
+	cursor: pointer;
+	@include user-select(none);
 
 	&:hover {
 		background-color: lighten($buttonColor, 10%);
@@ -88,7 +90,7 @@
 
 /*******************************************************************************************/
 
-$colors: (red:#D2322D, orange: #F18C20, yellow: #F5B400, blue: #124E8C,bluewood: #2C3E50, valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, conifer: #90D844, sienna:#D88D44, shakespeare: #44AAD8, cerise: #D84492);
+$colors: (red:#D2322D, orange: #F18C20, yellow: #F5B400, blue: #124E8C, bluewood: #2C3E50, valencia:#DB4242,wattle:#D8D444, purple: #A544D8, turquoise: #44D8BF, conifer: #90D844, sienna:#D88D44, shakespeare: #44AAD8, cerise: #D84492);
 
 @each $name, $color in $colors {
 	.btn-#{$name} {

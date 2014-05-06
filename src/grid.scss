@@ -24,3 +24,9 @@
 		width: percentage($i/12);
 	}
 }
+
+@for $i from 1 through 12 {
+	.sgc-offset-#{$i} {
+		margin-left: percentage($i/12);
+	}
+}
