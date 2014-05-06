@@ -33,21 +33,29 @@
 	height: 15px;
 	background: #fff;
 	border: 1px solid $bcolor;
-	margin: 5px;
+	margin: 17px 5px 13px;
 	cursor: pointer;
 	font-family: fonticon;
+	position: relative;
 	@include box-sizing(border-box);
+}
 
-	&:checked {
-
-	}
-	&:after {
-		content: "\f00c";
-	}
+@mixin radio($bcolor) {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: #fff;
+	border: 1px solid $bcolor;
+	margin: 17px 5px 13px;
+	cursor: pointer;
+	font-family: fonticon;
+	position: relative;
+	border-radius: 150px;
+	@include box-sizing(border-box);
 }
 
 .sinput {
-	@include input(#20A8A6);
+	@include input($defaultColor);
 }
 
 @each $name, $color in $colors {
@@ -64,6 +72,73 @@
 	@include label();
 }
 
-.scheckbox {
-	@include checkbox(#20A8A6);
+input[type='checkbox'].scheckbox {
+	display: none;
+}
+
+input[type='checkbox'].scheckbox + label {
+	@include checkbox($defaultColor);
+}
+
+input[type='checkbox'].scheckbox:checked + label:after {
+	color: $defaultColor;
+	font-size: 19px;
+    left: -1px;
+    position: absolute;
+    top: -2px;
+	content: "\f00c";
+}
+
+input[type='radio'].sradio {
+	display: none;
+}
+
+input[type='radio'].sradio + label {
+	@include radio($defaultColor);
+}
+
+input[type='radio'].sradio:checked + label:after {
+	color: $defaultColor;
+    font-size: 10px;
+    left: 2.3px;
+    position: absolute;
+    top: 1px;
+	content: "\f111";
+}
+
+@each $name, $color in $colors {
+	input[type='checkbox'].scheckbox-#{$name} {
+		display: none;
+	}
+
+	input[type='checkbox'].scheckbox-#{$name} + label {
+		@include checkbox($color);
+	}
+
+	input[type='checkbox'].scheckbox-#{$name}:checked + label:after {
+		color: $color;
+		font-size: 19px;
+	    left: -1px;
+	    position: absolute;
+	    top: -2px;
+		content: "\f00c";
+	}
+	
+
+	input[type='radio'].sradio-#{$name} {
+		display: none;
+	}
+
+	input[type='radio'].sradio-#{$name} + label {
+		@include radio($color);
+	}
+
+	input[type='radio'].sradio-#{$name}:checked + label:after {
+		color: $color;
+	    font-size: 10px;
+	    left: 2.3px;
+	    position: absolute;
+	    top: 1px;
+		content: "\f111";
+	}
 }

@@ -32,7 +32,7 @@
 }
 
 .widget {
-	@include widget(#20A8A6, #ffffff);
+	@include widget($defaultColor, #ffffff);
 }
 
 @each $name, $color in $colors {

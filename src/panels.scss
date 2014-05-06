@@ -12,7 +12,7 @@
 }
 
 .bar {
-	@include bar(#20A8A6);
+	@include bar($defaultColor);
 }
 
 @each $name, $color in $colors {
