@@ -55,6 +55,59 @@
 	@include box-sizing(border-box);
 }
 
+@mixin combobox($bcolor) {
+	position: relative;
+	margin: 5px;
+	width: calc(100% - 10px);
+	font-size: 14px;
+	@include box-sizing(border-box);
+
+	> li {
+		width: 100%;
+		position: relative;
+		height: 31px;
+		span {
+			background: #fff;
+			display: block;
+			padding: 7px 65px 7px 5px;
+			border: 1px solid $bcolor;
+			@include box-sizing(border-box);
+		}
+		a {
+			display: block;
+			position: absolute;
+			right: 1px;
+			top: 1px;
+			width: 60px;
+			height: 28px;
+			background: lighten($bcolor, 10%);
+			color: #fff;
+			font-size: 14px;
+		}
+		ul {
+			position: absolute;
+			border: 1px solid $bcolor;
+			background: lighten($bcolor, 10%);
+			padding: 5px;
+			width: 100%;
+			z-index: 1;
+			top: 31px;
+			@include box-sizing(border-box);
+		}
+		li {
+			color: #FFFFFF;
+			padding: 5px 0;
+			border-bottom: 1px solid darken($bcolor, 10%);
+		}
+		li:last-child {
+			color: #FFFFFF;
+			padding: 5px 0;
+			border-bottom: none;
+		}
+	}
+
+}
+
 .sinput {
 	@include input($defaultColor);
 }
@@ -63,7 +116,7 @@
 	.sinput-#{$name} {
 		@include input($color);
 	}
-	
+
 	.sinput-button .sinput-#{$name} {
 		margin-right: 0;
 	}
@@ -88,9 +141,9 @@ input[type='checkbox'].scheckbox + label {
 input[type='checkbox'].scheckbox:checked + label:after {
 	color: $defaultColor;
 	font-size: 19px;
-    left: -1px;
-    position: absolute;
-    top: -2px;
+	left: -1px;
+	position: absolute;
+	top: -2px;
 	content: "\f00c";
 }
 
@@ -104,11 +157,15 @@ input[type='radio'].sradio + label {
 
 input[type='radio'].sradio:checked + label:after {
 	color: $defaultColor;
-    font-size: 10px;
-    left: 2.3px;
-    position: absolute;
-    top: 2px;
+	font-size: 10px;
+	left: 2.3px;
+	position: absolute;
+	top: 2px;
 	content: "\f111";
+}
+
+.scombobox {
+	@include combobox($defaultColor);
 }
 
 @each $name, $color in $colors {
@@ -123,12 +180,11 @@ input[type='radio'].sradio:checked + label:after {
 	input[type='checkbox'].scheckbox-#{$name}:checked + label:after {
 		color: $color;
 		font-size: 19px;
-	    left: -1px;
-	    position: absolute;
-	    top: -2px;
+		left: -1px;
+		position: absolute;
+		top: -2px;
 		content: "\f00c";
 	}
-	
 
 	input[type='radio'].sradio-#{$name} {
 		display: none;
@@ -141,14 +197,19 @@ input[type='radio'].sradio:checked + label:after {
 	input[type='radio'].sradio-#{$name}:checked + label:after {
 		color: $color;
 		background: none repeat scroll 0 0 #44AAD8;
-	    border-radius: 150px;
-	    color: #44AAD8;
-	    content: "";
-	    font-size: 10px;
-	    height: 8px;
-	    left: 2.3px;
-	    position: absolute;
-	    top: 3px;
-	    width: 8px;
+		border-radius: 150px;
+		color: #44AAD8;
+		content: "";
+		font-size: 10px;
+		height: 8px;
+		left: 2.3px;
+		position: absolute;
+		top: 3px;
+		width: 8px;
+	}
+
+	.scombobox-#{$name} {
+		@include combobox($color);
 	}
 }
+
