@@ -57,7 +57,7 @@
 
 /******************************************* default  ***************************************/
 .btn {
-	@include button(10px 15px, $defaultColor, #fff);
+	@include button(7px 15px, $defaultColor, #fff);
 }
 
 .btn-3d {
@@ -88,13 +88,19 @@
 	}
 }
 
+
+
 /*******************************************************************************************/
 
 
 
 @each $name, $color in $colors {
 	.btn-#{$name} {
-		@include button(10px 15px, $color, #fff);
+		@include button(7px 15px, $color, #fff);
+	}
+
+	.sinput-button .btn-#{$name} {
+		margin-left: 0;
 	}
 
 	.btn-#{$name}.btn-3d {

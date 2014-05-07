@@ -5,12 +5,12 @@
 @include font-face(fonticon, 'fonticon/fontawesome-webfont');
 
 @mixin input($bcolor) {
-	padding: 10px;
+	padding: 6px;
 	@include calc(width, '100% - 10px');
 	border: 1px solid $bcolor;
 	color: #000;
 	font-size: 14px;
-	margin: 5px 5px 0;
+	margin: 5px 5px;
 	@include box-sizing(border-box);
 
 	&:focus {
@@ -20,8 +20,8 @@
 
 @mixin label() {
 	display: block;
-	margin: 5px 5px 0;
-	padding: 12px 10px;
+	margin: 5px 5px;
+	padding: 8px 10px;
 	font-weight: bold;
 	font-size: 14px;
 	@include box-sizing(border-box);
@@ -33,7 +33,7 @@
 	height: 15px;
 	background: #fff;
 	border: 1px solid $bcolor;
-	margin: 17px 5px 13px;
+	margin: 11px 5px;
 	cursor: pointer;
 	font-family: fonticon;
 	position: relative;
@@ -42,15 +42,16 @@
 
 @mixin radio($bcolor) {
 	display: inline-block;
-	width: 15px;
-	height: 15px;
+	width: 16px;
+	height: 16px;
 	background: #fff;
 	border: 1px solid $bcolor;
-	margin: 17px 5px 13px;
+	margin: 11px 5px;
 	cursor: pointer;
 	font-family: fonticon;
 	position: relative;
 	border-radius: 150px;
+	float: left;
 	@include box-sizing(border-box);
 }
 
@@ -62,10 +63,14 @@
 	.sinput-#{$name} {
 		@include input($color);
 	}
+	
+	.sinput-button .sinput-#{$name} {
+		margin-right: 0;
+	}
 }
 
 .scontrol {
-	margin: 0 0 10px 0;
+	margin: 0 0 0 0;
 }
 
 .slabel {
@@ -102,7 +107,7 @@ input[type='radio'].sradio:checked + label:after {
     font-size: 10px;
     left: 2.3px;
     position: absolute;
-    top: 1px;
+    top: 2px;
 	content: "\f111";
 }
 
@@ -135,10 +140,15 @@ input[type='radio'].sradio:checked + label:after {
 
 	input[type='radio'].sradio-#{$name}:checked + label:after {
 		color: $color;
+		background: none repeat scroll 0 0 #44AAD8;
+	    border-radius: 150px;
+	    color: #44AAD8;
+	    content: "";
 	    font-size: 10px;
+	    height: 8px;
 	    left: 2.3px;
 	    position: absolute;
-	    top: 1px;
-		content: "\f111";
+	    top: 3px;
+	    width: 8px;
 	}
 }
